@@ -34,7 +34,7 @@ int MainSDLWindow::Init(const char* name, int width, int height) {
 
   // Init renderer within the main SDL window:
   Uint32 renderer_flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
-  this->renderer = SDL_CreateRenderer(window, -1, renderer_flags);
+  this->renderer = SDL_CreateRenderer(this->window, -1, renderer_flags);
   if(this->renderer == NULL) {
     printf("SDL2 error while creating renderer : %s", SDL_GetError());
     return EXIT_FAILURE;
