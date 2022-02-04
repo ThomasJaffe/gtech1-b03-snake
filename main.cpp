@@ -1,10 +1,53 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "constants.h"
 #include "MainSDLWindow.hpp"
+#include "snake.hpp"
 #define FPS_LIMIT 250
 
+
 void SDL_LimitFPS(unsigned int limit);
+
+int keypress(int direction) {
+    const Uint8* keystates = SDL_GetKeyboardState(0);
+    // Player input.
+    if (keystates[SDL_SCANCODE_UP]){
+        if (direction == 1){
+            direction = 1;
+        }
+        else{
+            direction = 0;
+        }
+    }
+
+    if (keystates[SDL_SCANCODE_DOWN]){
+        if (direction == 0){
+            direction = 0;
+        }
+        else{
+            direction = 1;
+        }
+    }
+
+    if (keystates[SDL_SCANCODE_LEFT]){
+        if (direction == 3){
+            direction = 3;
+        }
+        else{
+            direction = 2;
+        }
+    }
+
+    if (keystates[SDL_SCANCODE_RIGHT]){
+        if (direction == 2){
+            direction = 2;
+        }
+        else{
+            direction = 3;
+        }
+    }
+}
 
 int main(int argc, char *argv[])
 {
@@ -87,7 +130,7 @@ void SDL_LimitFPS(unsigned int limit){
 //         ExitWithError("Impossible de dessiner un rectangle");
 //     }
 
-//     if(SDL_SetRenderDrawColor(pgRenderer, 255, 0, 0, 255) != 0){
+//     if(SDL_SetRenderDrawColor(pgRenderer, GRAPHIC_SNAKE_COLOUR_HEAD) != 0){
 //         ExitWithError("Impossible de changer la couleur pour le rendu");
 //     }
 
