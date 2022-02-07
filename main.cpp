@@ -6,48 +6,37 @@
 #include "snake.hpp"
 #define FPS_LIMIT 250
 
-
 void SDL_LimitFPS(unsigned int limit);
 
 int keypress(int direction) {
     const Uint8* keystates = SDL_GetKeyboardState(0);
-    // Player input.
     if (keystates[SDL_SCANCODE_UP]){
-        if (direction == 1){
-            direction = 1;
-        }
-        else{
-            direction = 0;
+        if (direction != DOWN){
+            direction = UP;
         }
     }
 
     if (keystates[SDL_SCANCODE_DOWN]){
-        if (direction == 0){
-            direction = 0;
-        }
-        else{
-            direction = 1;
+        if (direction != UP){
+            direction = DOWN;
         }
     }
 
     if (keystates[SDL_SCANCODE_LEFT]){
-        if (direction == 3){
-            direction = 3;
-        }
-        else{
-            direction = 2;
+        if (direction != RIGHT){
+            direction = LEFT;
         }
     }
 
     if (keystates[SDL_SCANCODE_RIGHT]){
-        if (direction == 2){
-            direction = 2;
-        }
-        else{
-            direction = 3;
+        if (direction != LEFT){
+            direction = RIGHT;
         }
     }
+    printf("%d", direction);
+    return direction;
 }
+
 
 int main(int argc, char *argv[])
 {
@@ -60,13 +49,13 @@ int main(int argc, char *argv[])
     //Window Initialization//
     snakeWindow.Init("Snake", 800, 600);
 
+    printf("Initialisation programme\n");
+
     SDL_bool program_launched = SDL_TRUE;
+    int direction = UP;
+    SDL_Event event;
 
     while(program_launched){
-
-        const Uint8* keystates = SDL_GetKeyboardState(0);
-        SDL_Event event;
-
         while(SDL_PollEvent(&event)){
             switch(event.type){
 
@@ -75,6 +64,7 @@ int main(int argc, char *argv[])
 
                         case SDLK_ESCAPE:
                             program_launched = SDL_FALSE;
+                            printf("Fermeture programme\n");
                             break;
 
                         default:
@@ -83,12 +73,14 @@ int main(int argc, char *argv[])
                     }
                 case SDL_QUIT:
                     program_launched = SDL_FALSE;
+                    printf("Fermeture programme\n");
                     break;
 
                 default:
                     break;
             }
         }
+        direction = keypress(direction);
         
         SDL_SetRenderDrawColor(snakeWindow.GetRenderer(), 255, 0, 0, 255);
         SDL_Rect rect = {400, 300, 20, 20};
@@ -98,7 +90,6 @@ int main(int argc, char *argv[])
         SDL_Delay(20);
         // frame_limit = SDL_GetTicks() + FPS_LIMIT;
         // SDL_LimitFPS(frame_limit); 
-
     }
 }
 
