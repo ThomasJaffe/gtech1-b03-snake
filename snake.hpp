@@ -10,6 +10,10 @@ class Snake{
         ~Snake();
         void move(int direction);
         void print();
+        void setX(int x);
+        void setY(int y);
+        int getX();
+        int getY();
 
     private:
 
@@ -18,5 +22,5 @@ class Snake{
         int direction = 0;
 
 };
-
+ 
 #endif

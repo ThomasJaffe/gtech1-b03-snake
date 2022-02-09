@@ -21,8 +21,8 @@ void Snake::move(int direction){
     }
     if (direction == DOWN){
         posY += 40;
-        if (posY >= 600 - 40)
-            posY = 600 - 40;
+        if (posY >= PLAYGROUND_HEIGHT - 40)
+            posY = PLAYGROUND_HEIGHT - 40;
     }
     if (direction == LEFT){
         posX -= 40;
@@ -31,7 +31,23 @@ void Snake::move(int direction){
     }
     if (direction == RIGHT){
         posX += 40;
-        if (posX >= 800 - 40)
-            posX = 800 - 40;
+        if (posX >= PLAYGROUND_WIDTH - 40)
+            posX = PLAYGROUND_WIDTH - 40;
     }
+}
+
+void Snake::setX(int x){
+    this->posX = x;
+}
+
+void Snake::setY(int y){
+    this->posY = y;
+}
+
+int Snake::getX(){
+    return this->posX;
+}
+
+int Snake::getY(){
+    return this->posY;
 }

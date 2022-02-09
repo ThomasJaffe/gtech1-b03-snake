@@ -46,9 +46,11 @@ int main(int argc, char *argv[])
     MainSDLWindow snakeWindow;
 
     //Window Initialization//
-    snakeWindow.Init("Snake", 800, 600);
+    snakeWindow.Init("Snake", PLAYGROUND_WIDTH, PLAYGROUND_HEIGHT);
 
     printf("Initialisation programme\n");
+
+    Snake snake;
 
     SDL_bool program_launched = SDL_TRUE;
     int direction = UP;
@@ -80,18 +82,19 @@ int main(int argc, char *argv[])
             }
         }
         direction = keypress(direction);
+        snake.move(direction);
         
         SDL_SetRenderDrawColor(snakeWindow.GetRenderer(), 255, 0, 0, 255);
-        SDL_Rect rect = {400, 300, 20, 20};
+        SDL_Rect rect = {snake.getX(), snake.getY(), 40, 40};
         SDL_RenderFillRect(snakeWindow.GetRenderer(), &rect);
         SDL_RenderPresent(snakeWindow.GetRenderer());
 
-        SDL_Delay(300);
+        SDL_Delay(120);
         // frame_limit = SDL_GetTicks() + FPS_LIMIT;
         // SDL_LimitFPS(frame_limit); 
     }
 }
-
+ 
 // void SDL_LimitFPS(unsigned int limit){
 //    unsigned int ticks = SDL_GetTicks();
 

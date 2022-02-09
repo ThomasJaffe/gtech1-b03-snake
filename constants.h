@@ -10,4 +10,7 @@
 #define LEFT 2
 #define RIGHT 3
 
+#define PLAYGROUND_HEIGHT 600
+#define PLAYGROUND_WIDTH 800
+
 #define FPS_LIMIT 250
