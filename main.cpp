@@ -32,7 +32,6 @@ int keypress(int direction) {
             direction = RIGHT;
         }
     }
-    printf("%d", direction);
     return direction;
 }
 
@@ -65,7 +64,7 @@ int main(int argc, char *argv[])
 
                         case SDLK_ESCAPE:
                             program_launched = SDL_FALSE;
-                            printf("\nFermeture programme\n");
+                            printf("Fermeture programme\n");
                             break;
 
                         default:
@@ -74,7 +73,7 @@ int main(int argc, char *argv[])
                     }
                 case SDL_QUIT:
                     program_launched = SDL_FALSE;
-                    printf("\nFermeture programme\n");
+                    printf("Fermeture programme\n");
                     break;
 
                 default:
@@ -84,6 +83,9 @@ int main(int argc, char *argv[])
         direction = keypress(direction);
         snake.move(direction);
         
+        SDL_SetRenderDrawColor(snakeWindow.GetRenderer(),0,0,0,255);
+        SDL_RenderClear(snakeWindow.GetRenderer());
+
         SDL_SetRenderDrawColor(snakeWindow.GetRenderer(), 255, 0, 0, 255);
         SDL_Rect rect = {snake.getX(), snake.getY(), 40, 40};
         SDL_RenderFillRect(snakeWindow.GetRenderer(), &rect);
