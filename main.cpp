@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
         SDL_SetRenderDrawColor(snakeWindow.GetRenderer(),0,0,0,255);
         SDL_RenderClear(snakeWindow.GetRenderer());
 
-        SDL_SetRenderDrawColor(snakeWindow.GetRenderer(), 255, 0, 0, 255);
+        SDL_SetRenderDrawColor(snakeWindow.GetRenderer(), 127, 0, 255, 255);
         SDL_Rect rect = {snake.getX(), snake.getY(), 40, 40};
         SDL_RenderFillRect(snakeWindow.GetRenderer(), &rect);
         SDL_RenderPresent(snakeWindow.GetRenderer());
