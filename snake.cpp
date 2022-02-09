@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "snake.hpp"
 #include "constants.h"
+#include "MainSDLWindow.hpp"
 
 Snake::Snake(){
     
@@ -12,28 +13,29 @@ Snake::~Snake(){
 
 }
 
-void Snake::move(int direction){
+int Snake::move(int direction){
 
     if (direction == UP){
-        posY -= 40;
-        if (posY <= 0)
-            posY = 0;
+        posY -= STEP_SIZE;
+        if (posY < 0)
+            return 0;
     }
     if (direction == DOWN){
-        posY += 40;
-        if (posY >= PLAYGROUND_HEIGHT - 40)
-            posY = PLAYGROUND_HEIGHT - 40;
+        posY += STEP_SIZE;
+        if (posY > PLAYGROUND_HEIGHT)
+            return 0;
     }
     if (direction == LEFT){
-        posX -= 40;
-        if (posX <= 0)
-            posX = 0;
+        posX -= STEP_SIZE;
+        if (posX < 0)
+            return 0;
     }
     if (direction == RIGHT){
-        posX += 40;
-        if (posX >= PLAYGROUND_WIDTH - 40)
-            posX = PLAYGROUND_WIDTH - 40;
+        posX += STEP_SIZE;
+        if (posX > PLAYGROUND_WIDTH)
+            return 0;
     }
+    return 1;
 }
 
 void Snake::setX(int x){

@@ -1,14 +1,12 @@
 #ifndef SNAKE_HPP
 #define SNAKE_HPP
 
-#define HEAD_SIZE 40
-
 class Snake{
     public:
 
         Snake();
         ~Snake();
-        void move(int direction);
+        int move(int direction);
         void print();
         void setX(int x);
         void setY(int y);
@@ -21,8 +19,8 @@ class Snake{
 
     private:
 
-        int posX = 300;
-        int posY = 300;
+        int posX = 400;
+        int posY = 320;
         int direction = 0;
         int colorR = 0;
         int colorG = 0;
