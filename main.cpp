@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
         SDL_RenderFillRect(snakeWindow.GetRenderer(), &rect);
         SDL_RenderPresent(snakeWindow.GetRenderer());
 
-        SDL_Delay(120);
+        SDL_Delay(117);
         // frame_limit = SDL_GetTicks() + FPS_LIMIT;
         // SDL_LimitFPS(frame_limit); 
     }
