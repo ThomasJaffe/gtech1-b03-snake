@@ -9,3 +9,5 @@
 #define DOWN 1
 #define LEFT 2
 #define RIGHT 3
+
+#define FPS_LIMIT 250
