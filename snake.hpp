@@ -1,8 +1,6 @@
 #ifndef SNAKE_HPP
 #define SNAKE_HPP
 
-#define HEAD_SIZE 40
-
 class Snake{
     public:
 

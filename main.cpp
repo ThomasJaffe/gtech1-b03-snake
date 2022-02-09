@@ -81,11 +81,14 @@ int main(int argc, char *argv[])
                     break;
             }
         }
+
         direction = keypress(direction);
         snake.move(direction);
         
-        SDL_SetRenderDrawColor(snakeWindow.GetRenderer(), 255, 0, 0, 255);
-        SDL_Rect rect = {snake.getX(), snake.getY(), 40, 40};
+        SDL_SetRenderDrawColor(snakeWindow.GetRenderer(), GRAPHIC_PLAYGROUND_COLOUR);
+        SDL_RenderClear(snakeWindow.GetRenderer());
+        SDL_SetRenderDrawColor(snakeWindow.GetRenderer(), GRAPHIC_SNAKE_COLOUR_HEAD);
+        SDL_Rect rect = {snake.getX(), snake.getY(), HEAD_SIZE};
         SDL_RenderFillRect(snakeWindow.GetRenderer(), &rect);
         SDL_RenderPresent(snakeWindow.GetRenderer());
 
