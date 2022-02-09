@@ -1,5 +1,7 @@
 #pragma once
 
+//Define values
+
 #define LOGIC_GRID_SIZE_IN_CELL 17
 #define GRAPHIC_CELL_SIZE_IN_PIXELS 40
 
@@ -15,5 +17,6 @@
 #define PLAYGROUND_WIDTH 800
 
 #define HEAD_SIZE 40, 40
+#define STEP_SIZE 40
 
 #define FPS_LIMIT 250
