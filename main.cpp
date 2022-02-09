@@ -1,6 +1,7 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "constants.h"
 #include "MainSDLWindow.hpp"
 #include "snake.hpp"
@@ -35,9 +36,10 @@ int keypress(int direction) {
     return direction;
 }
 
+int main(int argc, char *argv[]){
 
-int main(int argc, char *argv[])
-{
+    srand(time(NULL));
+
     unsigned int frame_limit = 0;
     frame_limit = SDL_GetTicks() + FPS_LIMIT;
 
@@ -50,6 +52,7 @@ int main(int argc, char *argv[])
     printf("Initialisation programme\n");
 
     Snake snake;
+    snake.setcolor();
 
     SDL_bool program_launched = SDL_TRUE;
     int direction = UP;
@@ -86,7 +89,7 @@ int main(int argc, char *argv[])
         SDL_SetRenderDrawColor(snakeWindow.GetRenderer(),0,0,0,255);
         SDL_RenderClear(snakeWindow.GetRenderer());
 
-        SDL_SetRenderDrawColor(snakeWindow.GetRenderer(), 127, 0, 255, 255);
+        SDL_SetRenderDrawColor(snakeWindow.GetRenderer(),snake.getcolorR(),snake.getcolorG(),snake.getcolorB(),255);
         SDL_Rect rect = {snake.getX(), snake.getY(), 40, 40};
         SDL_RenderFillRect(snakeWindow.GetRenderer(), &rect);
         SDL_RenderPresent(snakeWindow.GetRenderer());

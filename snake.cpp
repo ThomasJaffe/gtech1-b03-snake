@@ -51,3 +51,21 @@ int Snake::getX(){
 int Snake::getY(){
     return this->posY;
 }
+
+int Snake::setcolor(){
+    this->colorR = rand() % 256;
+    this->colorG = rand() % 256;
+    this->colorB = rand() % 256;
+}
+
+int Snake::getcolorR(){
+    return this->colorR;
+}
+
+int Snake::getcolorG(){
+    return this->colorG;
+}
+
+int Snake::getcolorB(){
+    return this->colorB;
+}

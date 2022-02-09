@@ -14,13 +14,19 @@ class Snake{
         void setY(int y);
         int getX();
         int getY();
+        int setcolor();
+        int getcolorR();
+        int getcolorG();
+        int getcolorB();
 
     private:
 
         int posX = 300;
         int posY = 300;
         int direction = 0;
-
+        int colorR = 0;
+        int colorG = 0;
+        int colorB = 0;
 };
  
 #endif
